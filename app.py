@@ -1,11 +1,11 @@
 import streamlit as st
 import os
 from dotenv import load_dotenv 
-from scraper import fetch_and_clean_content # <--- यह लाइन सही फ़ंक्शन को इम्पोर्ट करती है
+from scraper import fetch_and_clean_content
 from analyzer import analyze_marketing_insights
 
 # --- Load Environment Variables from .env file ---
-# यह कमांड आपके .env फ़ाइल से GEMINI_API_KEY को लोड करता है।
+
 load_dotenv()
 
 # --- Configuration (Streamlit UI Setup) ---
@@ -37,9 +37,9 @@ if st.button("Analyze Messaging", type="primary"):
     elif not url_input:
         st.error("Please enter a valid URL.")
     else:
-        # 1. Fetching and Cleaning Content (scraper.py से)
+        # 1. Fetching and Cleaning Content (from scraper.py)
         with st.spinner(f"Step 1/2: Fetching and cleaning content from {url_input}..."):
-            # यह fetch_and_clean_content फ़ंक्शन को कॉल करता है
+            #fetch_and_clean_content 
             scrape_results = fetch_and_clean_content(url_input) 
 
         if "error" in scrape_results:
@@ -54,7 +54,7 @@ if st.button("Analyze Messaging", type="primary"):
                  st.write(full_text[:500] + "...")
                  st.caption(f"Total characters: {len(full_text)}")
             
-            # 2. AI Analysis (analyzer.py से)
+            # 2. AI Analysis (from analyzer.py)
             with st.spinner("Step 2/2: Analyzing content and generating insights (this may take a moment)..."):
                 analysis_results = analyze_marketing_insights(hook_text, full_text)
 
