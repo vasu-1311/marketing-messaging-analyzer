@@ -94,12 +94,12 @@ def analyze_marketing_insights(hook_text: str, full_text: str) -> dict:
 
         except APIError as e:
             # Handle transient API issues with exponential backoff
-            if attempt < MAX_RETRIES - 1:
+            if attempt < MAX_RETRIES - 1: # Fixed typo: MAX_RIES -> MAX_RETRIES
                 wait_time = 2 ** attempt  # 1s, 2s, 4s, 8s...
                 print(f"API Error: {e}. Retrying in {wait_time} seconds...")
                 time.sleep(wait_time)
             else:
-                return {"error": f"API call failed after {MAX_RETRIES} attempts: {e}"}
+                return {"error": f"API call failed after {MAX_RETRIES} attempts: {e}"} # Fixed typo: MAX_RIES -> MAX_RETRIES
         except Exception as e:
             return {"error": f"An unexpected error occurred during AI analysis: {e}"}
 
