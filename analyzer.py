@@ -102,8 +102,11 @@ def analyze_marketing_insights(hook_text, full_text):
             else:
                 # After max retries, check for the specific 403 issue
                 if "403 PERMISSION_DENIED" in str(e) or "leaked" in str(e):
-                     return {"error": f"API call failed after 5 attempts: 403 PERMISSION_DENIED. Final check: This usually means Billing is disabled or the key is not configured for the Gemini API service."}
-                return {"error": f"API call failed after {MAX_RETRIES} attempts: {e}"}
+                     # Simplified, actionable error message for the Streamlit UI
+                     return {"error": "API Authorization Error: The Gemini service denied the request. Please ensure your API Key is correct, has not been revoked, and that **Billing is enabled** on your Google Cloud project."}
+                
+                # Simplified generic error message for other persistent API issues
+                return {"error": f"The AI analysis failed after {MAX_RETRIES} attempts. The service may be temporarily unavailable. Please try again. Detailed error: {e}"}
         except Exception as e:
             # Handle non-API related exceptions (e.g., malformed JSON response)
             return {"error": f"An unexpected error occurred during AI analysis or JSON parsing: {e}"}
