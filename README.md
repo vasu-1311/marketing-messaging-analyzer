@@ -1,8 +1,8 @@
-💡 Marketing Messaging Analyzer (Gemini API + Streamlit)
+ Marketing Messaging Analyzer (Gemini API + Streamlit)
 
 This project is a web-based tool built using Streamlit and the Google Gemini API. Its purpose is to scrape content from any public website URL and then analyze its marketing messaging to provide critical, structured insights.
 
-🚀 Features
+ Features
 
 Content Scraping: Efficiently fetches HTML content from a given URL and extracts clean, main body text by removing boilerplate elements like navigation, scripts, and styles.
 
@@ -18,7 +18,7 @@ Conversion Killers: A list of 3 specific, confusing, or jargon-heavy phrases fou
 
 Interactive UI: A simple and engaging user interface provided by Streamlit.
 
-⚙️ Setup and Installation
+ Setup and Installation
 
 Follow these steps to set up and run the application locally.
 
@@ -59,7 +59,7 @@ You need to create a file named .env in the root of your project folder and add 
 GEMINI_API_KEY='YOUR_GEMINI_API_KEY_HERE'
 
 
-▶️ Running the Application
+ Running the Application
 
 Once the setup is complete, you can start the application using Streamlit:
 
@@ -68,7 +68,7 @@ streamlit run app.py
 
 This command will open the application in your default web browser (usually at http://localhost:8501/).
 
-📂 File Structure
+ File Structure
 
 File
 
