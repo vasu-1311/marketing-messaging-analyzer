@@ -17,11 +17,11 @@ st.set_page_config(
 
 # --- Check API Key ---
 if not os.getenv("GEMINI_API_KEY"):
-    st.error("🚨 GEMINI_API_KEY environment variable not found.")
+    st.error(" GEMINI_API_KEY environment variable not found.")
     st.warning("Please create a file named `.env` in your project folder with the content: `GEMINI_API_KEY='YOUR_KEY_HERE'`")
 
 # --- UI Layout ---
-st.title("💡 Marketing Messaging Analyzer")
+st.title(" Marketing Messaging Analyzer")
 st.markdown("Enter a public website URL below to extract core content and generate marketing insights using AI.")
 
 # Input field
@@ -65,7 +65,7 @@ if st.button("Analyze Messaging", type="primary"):
                 
                 # --- Display Results (The 3 Mandatory Outputs) ---
                 
-                st.header("🎯 Key Messaging Insights")
+                st.header(" Key Messaging Insights")
 
                 # 1. Hook Score (0-100%)
                 hook_score = analysis_results.get('hook_score', 0)
@@ -94,8 +94,9 @@ if st.button("Analyze Messaging", type="primary"):
                 killers = analysis_results.get('conversion_killers', [])
                 st.subheader("3. Conversion Killers (Friction Points)")
                 if killers:
-                    st.warning("⚠️ These phrases might confuse or lose customers:")
+                    st.warning(" These phrases might confuse or lose customers:")
                     for i, killer in enumerate(killers):
                         st.markdown(f"**{i+1}.** `{killer}`")
                 else:
                     st.info("No obvious jargon or confusing phrases were found.")
+
