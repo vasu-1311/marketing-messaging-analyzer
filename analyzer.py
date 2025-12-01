@@ -48,7 +48,7 @@ def analyze_marketing_insights(hook_text, full_text):
     """
     Calls the Gemini API to analyze the content and returns structured marketing insights.
 
-    यह फ़ंक्शन Gemini API को कॉल करता है, कंटेंट का विश्लेषण करता है, और संरचित JSON डेटा लौटाता है।
+  
     """
     
     # CRITICAL FIX: Explicitly pass the API Key from the environment to the client
@@ -126,3 +126,4 @@ if __name__ == '__main__':
     else:
         print("\n--- AI Analysis Success! ---")
         print(json.dumps(results, indent=2))
+
